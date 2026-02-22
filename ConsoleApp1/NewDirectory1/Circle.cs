@@ -1,23 +1,27 @@
 ﻿using System;
 
-namespace ConsoleApp1.NewDirectory1;
-
-public class Circle
+namespace ConsoleApp1.NewDirectory1
 {
-    public double Radius;
-
-    public Circle(double radius)
+    public class Circle
     {
-        Radius = radius;
-    }
+        public double Radius { get; private set; }
 
-    public double GetArea()
-    {
-        return Math.PI * Radius * Radius;
-    }
+        public Circle(double radius)
+        {
+            if (radius < 0)
+                throw new ArgumentException("Radius cannot be negative", nameof(radius));
 
-    public double GetCircumference()
-    {
-        return 2 * Math.PI * Radius;
+            Radius = radius;
+        }
+
+        public double GetArea()
+        {
+            return Math.PI * Radius * Radius;
+        }
+
+        public double GetCircumference()
+        {
+            return 2 * Math.PI * Radius;
+        }
     }
 }
